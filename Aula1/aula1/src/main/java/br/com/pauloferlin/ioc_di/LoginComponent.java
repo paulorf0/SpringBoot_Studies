@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+//Componentes são classes que você quer que o SpringBoot gerencie.
+//Gerenciar, no caso, instanciar, apagar, etc...
 @Component
 public class LoginComponent {
 

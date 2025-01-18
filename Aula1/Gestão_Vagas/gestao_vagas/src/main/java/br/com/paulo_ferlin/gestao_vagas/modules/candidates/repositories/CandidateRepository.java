@@ -1,4 +1,4 @@
-package br.com.paulo_ferlin.gestao_vagas.modules.candidates.controllers;
+package br.com.paulo_ferlin.gestao_vagas.modules.candidates.repositories;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -11,6 +11,8 @@ import br.com.paulo_ferlin.gestao_vagas.modules.candidates.CandidateEntity;
 
 // O JPARepository é uma interface que possui métodos pré-definidos para lidar com ações no banco de dados.
 //Neste ponto do código, não é necessário adicionar @Repository, pois o JPARepository já é uma interface que possui essa anotação.
+
+//O primeiro generic de JpaRepository é a entidade e o segundo é o tipo da chave primária.
 @Repository
 public interface CandidateRepository extends JpaRepository<CandidateEntity, UUID> {
 

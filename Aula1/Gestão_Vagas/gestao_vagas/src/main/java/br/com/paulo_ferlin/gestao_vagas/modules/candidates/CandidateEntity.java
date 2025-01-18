@@ -43,7 +43,7 @@ public class CandidateEntity {
     @Email
     private String email;
 
-    @Pattern(regexp = "\\(\\d{2}\\)\\d{8,9}|\\d{10,11}", message = "Formato de número inválido. Esperado: (XX)XXXXXXXXX ou XXXXXXXXXXX")
+    @Pattern(regexp = "\\d{10,11}", message = "Formato de número inválido. Esperado 10 ou 11 números")
     private String phone;
 
     @NotBlank
@@ -54,7 +54,7 @@ public class CandidateEntity {
     private String description;
 
     @NotBlank
-    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{11}", message = "Formato de CPF inválido. Esperado: XXX.XXX.XXX-XX ou XXXXXXXXXXX")
+    @Pattern(regexp = "\\d{11}", message = "Formato de CPF inválido. Esperado: 11 números")
     private String cpf;
 
     @Length(min = 0, max = 100, message = "O endereço deve ter entre 10 e 100 caracteres")

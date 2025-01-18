@@ -35,7 +35,7 @@ public class SegundaController {
 
     @PostMapping("/loginComComponente")
     public ResponseEntity<Object> loginComComponente(@RequestBody Map<String, String> param) {
-        String response = loginComponent.login(param);
+        var response = loginComponent.login(param);
         return ResponseEntity.accepted().body(response);
     }
 
