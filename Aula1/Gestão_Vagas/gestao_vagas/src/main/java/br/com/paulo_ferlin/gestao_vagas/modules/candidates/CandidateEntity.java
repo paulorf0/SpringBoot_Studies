@@ -8,7 +8,10 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +23,9 @@ import jakarta.validation.constraints.Pattern;
 //Serve para criar os Getters e Setters de maneira automatica, sem poluir o código.
 // {"id": , "name": , "curriculum": , "email": , "phone": , "password": , "description": , "cpf": , "address": }
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 // Criando uma tabela chamada candidates no banco de dados.
 @Entity(name = "candidates")
 public class CandidateEntity {
@@ -47,7 +53,6 @@ public class CandidateEntity {
     private String phone;
 
     @NotBlank
-    @Length(min = 8, max = 30, message = "A senha deve ter entre 8 e 30 caracteres")
     private String password;
 
     @Length(min = 30, max = 100, message = "A descrição deve ter entre 30 e 100 caracteres")

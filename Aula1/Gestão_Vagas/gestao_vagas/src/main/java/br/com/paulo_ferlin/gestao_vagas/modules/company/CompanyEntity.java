@@ -14,7 +14,10 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //A relação entre empresa e trabalho é:
 //Todo trabalho precisa de uma empresa existente por trás.
@@ -30,6 +33,9 @@ import lombok.Data;
 //Os dados pedidos são:
 // {"id": , "name": , "email": , "phone": , "password": , "description": , "cnpj": , "address", "site": }
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "company")
 public class CompanyEntity {
 
@@ -47,7 +53,6 @@ public class CompanyEntity {
     private String phone;
 
     @NotBlank
-    @Length(min = 8, max = 30, message = "A senha deve ter entre 8 e 30 caracteres")
     private String password;
 
     @NotBlank

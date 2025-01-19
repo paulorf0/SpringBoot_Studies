@@ -13,6 +13,9 @@ public class JobService {
     private JobRepository jobRepository;
 
     public JobEntity saveJob(JobEntity jobEntity) {
+
+        // É possível registrar uma nova empresa, mesmo que não seja adicionado um
+        // company_id, deve arrumar isso.
         return jobRepository.save(jobEntity);
     }
 }

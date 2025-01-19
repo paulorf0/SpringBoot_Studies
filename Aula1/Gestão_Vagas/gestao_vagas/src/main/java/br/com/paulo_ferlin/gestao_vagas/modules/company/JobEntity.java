@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,12 +13,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //Campos:
 // {"id": "", "description": "", "level": "", "benefits": "", "companyID"}
 
 @Data
+// As três linhas seguintes foram criadas para que eu possa fazer um DTO desse
+// JobEntity, para isolar essas inforamções do mundo externo. Dessa maneira, a
+// aplicação fica mais segura.w
+// Permite instanciar a classe JobEntity de maneira eficiente.
+@Builder
+// Gera um construtor que aceita um argumento para cada campo de variável da
+// classe.
+@AllArgsConstructor
+// Gera um construtor sem argumento.
+@NoArgsConstructor
 @Entity(name = "job")
 public class JobEntity {
 
@@ -73,8 +85,7 @@ public class JobEntity {
 
     // Aqui está sendo criada uma coluna que será usada para referenciar uma chave
     // primaria em outra tabela.
-    @Column(name = "company_id")
-    private UUID companyID;
+    private UUID company_id;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
