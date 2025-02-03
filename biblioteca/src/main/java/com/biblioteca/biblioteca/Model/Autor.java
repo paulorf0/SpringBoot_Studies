@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.CurrentTimestamp;
 
@@ -15,6 +16,7 @@ import java.util.UUID;
 @Entity(name = "autor")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "livros")
 @Data
 public class Autor {
     @Id
