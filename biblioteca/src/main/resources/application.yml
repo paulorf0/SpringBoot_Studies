@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: bibliotecaDB
+  datasource:
+    username: admin
+    password: admin
+    url: jdbc:postgresql://localhost:5432/biblioteca
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
