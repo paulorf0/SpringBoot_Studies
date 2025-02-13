@@ -10,7 +10,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity(name = "livro")
 @AllArgsConstructor
@@ -29,7 +28,7 @@ public class Livro {
     private BigDecimal preco;
 
     @Column(name = "data_publicacao")
-    private LocalDate dataPublicacao;
+    private LocalDate data_publicacao;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "autor_id")

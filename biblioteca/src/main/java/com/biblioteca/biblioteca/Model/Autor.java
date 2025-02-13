@@ -1,17 +1,16 @@
 package com.biblioteca.biblioteca.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.CurrentTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Entity(name = "autor")
 @AllArgsConstructor
@@ -29,13 +28,16 @@ public class Autor {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private LocalDate dataNascimento;
+    private String senha;
 
+    @Column(nullable = false)
+    private LocalDate data_nascimento;
+
+    @Column(unique = true, nullable = false)
     private String telefone;
 
 
-    @OneToMany(mappedBy = "autor")
+    @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY)
     private List<Livro> livros;
 
     @Column(name = "data_cadastro", columnDefinition = "TIMESTAMP")
